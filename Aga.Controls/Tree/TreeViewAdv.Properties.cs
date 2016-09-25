@@ -240,16 +240,16 @@ namespace Aga.Controls.Tree
 
 		#region DesignTime
 
-		private Color _fullRowSelectActiveColor;
-		[Category("Appearance")]
+		private Color _fullRowSelectActiveColor = SystemColors.Highlight;
+		[DefaultValue(typeof(Color), "Highlight"), Category("Appearance")]
 		public Color FullRowSelectActiveColor
 		{
 			get { return _fullRowSelectActiveColor; }
 			set { _fullRowSelectActiveColor = value; }
 		}
 
-		private Color _fullRowSelectInactiveColor;
-		[Category("Appearance")]
+		private Color _fullRowSelectInactiveColor = SystemColors.Control;
+		[DefaultValue(typeof(Color), "Control"), Category("Appearance")]
 		public Color FullRowSelectInactiveColor
 		{
 			get { return _fullRowSelectInactiveColor; }
@@ -422,6 +422,13 @@ namespace Aga.Controls.Tree
 			}
 		}
 
+		[DefaultValue(typeof(Color), "Window"), Category("Appearance")]
+		public override Color BackColor
+		{
+			get { return base.BackColor; }
+			set { base.BackColor = value; }
+		}
+		
 		private bool _autoRowHeight = false;
 		/// <summary>
 		/// Set to true to expand each row's height to fit the text of it's largest column.
@@ -591,7 +598,7 @@ namespace Aga.Controls.Tree
 		}
 
 		private Color _lineColor = SystemColors.ControlDark;
-		[Category("Behavior")]
+		[DefaultValue(typeof(Color), "ControlDark"), Category("Behavior")]
 		public Color LineColor
 		{
 			get { return _lineColor; }
@@ -604,7 +611,7 @@ namespace Aga.Controls.Tree
 		}
 
 		private Color _dragDropMarkColor = Color.Black;
-		[Category("Behavior")]
+		[DefaultValue(typeof(Color), "Black"), Category("Behavior")]
 		public Color DragDropMarkColor
 		{
 			get { return _dragDropMarkColor; }
