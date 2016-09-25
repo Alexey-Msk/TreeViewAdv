@@ -1,33 +1,33 @@
 namespace SampleApp
 {
-    partial class FolderBrowser
-    {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class FolderBrowser
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Component Designer generated code
+		#region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
 			this.cboxGrid = new System.Windows.Forms.ComboBox();
 			this.cbLines = new System.Windows.Forms.CheckBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -79,8 +79,8 @@ namespace SampleApp
 			// 
 			this._treeView.AllowColumnReorder = true;
 			this._treeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			| System.Windows.Forms.AnchorStyles.Left) 
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this._treeView.AutoRowHeight = true;
 			this._treeView.BackColor = System.Drawing.SystemColors.Window;
 			this._treeView.ColumnHeaderHeight = 21;
@@ -89,10 +89,8 @@ namespace SampleApp
 			this._treeView.Columns.Add(this.treeColumn3);
 			this._treeView.Cursor = System.Windows.Forms.Cursors.Default;
 			this._treeView.DefaultToolTipProvider = null;
-			this._treeView.DragDropMarkColor = System.Drawing.Color.Black;
 			this._treeView.FullRowSelect = true;
 			this._treeView.GridLineStyle = ((Aga.Controls.Tree.GridLineStyle)((Aga.Controls.Tree.GridLineStyle.Horizontal | Aga.Controls.Tree.GridLineStyle.Vertical)));
-			this._treeView.LineColor = System.Drawing.SystemColors.ControlDark;
 			this._treeView.LoadOnDemand = true;
 			this._treeView.Location = new System.Drawing.Point(0, 0);
 			this._treeView.Model = null;
@@ -102,6 +100,7 @@ namespace SampleApp
 			this._treeView.NodeControls.Add(this._name);
 			this._treeView.NodeControls.Add(this._size);
 			this._treeView.NodeControls.Add(this._date);
+			this._treeView.NodeFilter = null;
 			this._treeView.SelectedNode = null;
 			this._treeView.ShowNodeToolTips = true;
 			this._treeView.Size = new System.Drawing.Size(533, 298);
@@ -185,21 +184,21 @@ namespace SampleApp
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private Aga.Controls.Tree.TreeViewAdv _treeView;
-        private Aga.Controls.Tree.NodeControls.NodeStateIcon _icon;
-        private Aga.Controls.Tree.NodeControls.NodeTextBox _name;
-        private Aga.Controls.Tree.NodeControls.NodeTextBox _size;
-        private Aga.Controls.Tree.NodeControls.NodeTextBox _date;
-        private Aga.Controls.Tree.NodeControls.NodeCheckBox nodeCheckBox1;
-        private Aga.Controls.Tree.TreeColumn treeColumn1;
-        private Aga.Controls.Tree.TreeColumn treeColumn2;
-        private Aga.Controls.Tree.TreeColumn treeColumn3;
+		private Aga.Controls.Tree.TreeViewAdv _treeView;
+		private Aga.Controls.Tree.NodeControls.NodeStateIcon _icon;
+		private Aga.Controls.Tree.NodeControls.NodeTextBox _name;
+		private Aga.Controls.Tree.NodeControls.NodeTextBox _size;
+		private Aga.Controls.Tree.NodeControls.NodeTextBox _date;
+		private Aga.Controls.Tree.NodeControls.NodeCheckBox nodeCheckBox1;
+		private Aga.Controls.Tree.TreeColumn treeColumn1;
+		private Aga.Controls.Tree.TreeColumn treeColumn2;
+		private Aga.Controls.Tree.TreeColumn treeColumn3;
 		private System.Windows.Forms.ComboBox cboxGrid;
-        private System.Windows.Forms.CheckBox cbLines;
+		private System.Windows.Forms.CheckBox cbLines;
 		private System.Windows.Forms.Label label1;
-    }
+	}
 }

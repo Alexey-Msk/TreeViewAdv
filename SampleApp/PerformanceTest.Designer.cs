@@ -148,15 +148,15 @@ namespace SampleApp
 			// _treeView
 			// 
 			this._treeView.BackColor = System.Drawing.SystemColors.Window;
+			this._treeView.ColumnHeaderHeight = 0;
 			this._treeView.Cursor = System.Windows.Forms.Cursors.Default;
 			this._treeView.DefaultToolTipProvider = null;
-			this._treeView.DragDropMarkColor = System.Drawing.Color.Black;
-			this._treeView.LineColor = System.Drawing.SystemColors.ControlDark;
 			this._treeView.LoadOnDemand = true;
 			this._treeView.Location = new System.Drawing.Point(3, 32);
 			this._treeView.Model = null;
 			this._treeView.Name = "_treeView";
 			this._treeView.NodeControls.Add(this.nodeTextBox1);
+			this._treeView.NodeFilter = null;
 			this._treeView.SelectedNode = null;
 			this._treeView.SelectionMode = Aga.Controls.Tree.TreeSelectionMode.Multi;
 			this._treeView.Size = new System.Drawing.Size(269, 294);

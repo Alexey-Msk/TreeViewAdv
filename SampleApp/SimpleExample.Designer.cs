@@ -122,23 +122,23 @@ namespace SampleApp
 			this._fontSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this._fontSize.Location = new System.Drawing.Point(510, 310);
 			this._fontSize.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
+			30,
+			0,
+			0,
+			0});
 			this._fontSize.Minimum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
+			9,
+			0,
+			0,
+			0});
 			this._fontSize.Name = "_fontSize";
 			this._fontSize.Size = new System.Drawing.Size(48, 20);
 			this._fontSize.TabIndex = 8;
 			this._fontSize.Value = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
+			9,
+			0,
+			0,
+			0});
 			this._fontSize.ValueChanged += new System.EventHandler(this._fontSize_ValueChanged);
 			// 
 			// label1
@@ -243,19 +243,19 @@ namespace SampleApp
 			// _tree2
 			// 
 			this._tree2.AllowDrop = true;
-			this._tree2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this._tree2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this._tree2.BackColor = System.Drawing.SystemColors.Window;
+			this._tree2.ColumnHeaderHeight = 0;
 			this._tree2.Cursor = System.Windows.Forms.Cursors.Default;
 			this._tree2.DefaultToolTipProvider = null;
 			this._tree2.DisplayDraggingNodes = true;
-			this._tree2.DragDropMarkColor = System.Drawing.Color.Black;
-			this._tree2.LineColor = System.Drawing.SystemColors.ControlDark;
 			this._tree2.LoadOnDemand = true;
 			this._tree2.Location = new System.Drawing.Point(0, 229);
 			this._tree2.Model = null;
 			this._tree2.Name = "_tree2";
 			this._tree2.NodeControls.Add(this.nodeTextBox1);
+			this._tree2.NodeFilter = null;
 			this._tree2.SelectedNode = null;
 			this._tree2.Size = new System.Drawing.Size(375, 155);
 			this._tree2.TabIndex = 11;
@@ -271,17 +271,16 @@ namespace SampleApp
 			// _tree
 			// 
 			this._tree.AllowDrop = true;
-			this._tree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-						| System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
+			this._tree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			| System.Windows.Forms.AnchorStyles.Left) 
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this._tree.AutoRowHeight = true;
 			this._tree.BackColor = System.Drawing.SystemColors.Window;
 			this._tree.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this._tree.ColumnHeaderHeight = 0;
 			this._tree.Cursor = System.Windows.Forms.Cursors.Default;
 			this._tree.DefaultToolTipProvider = null;
 			this._tree.DisplayDraggingNodes = true;
-			this._tree.DragDropMarkColor = System.Drawing.Color.Black;
-			this._tree.LineColor = System.Drawing.SystemColors.ControlDark;
 			this._tree.LoadOnDemand = true;
 			this._tree.Location = new System.Drawing.Point(0, 0);
 			this._tree.Model = null;
@@ -289,16 +288,17 @@ namespace SampleApp
 			this._tree.NodeControls.Add(this._nodeCheckBox);
 			this._tree.NodeControls.Add(this._nodeStateIcon);
 			this._tree.NodeControls.Add(this._nodeTextBox);
+			this._tree.NodeFilter = null;
 			this._tree.SelectedNode = null;
 			this._tree.SelectionMode = Aga.Controls.Tree.TreeSelectionMode.MultiSameParent;
 			this._tree.ShowNodeToolTips = true;
 			this._tree.Size = new System.Drawing.Size(375, 223);
 			this._tree.TabIndex = 0;
+			this._tree.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this._tree_ItemDrag);
 			this._tree.NodeMouseDoubleClick += new System.EventHandler<Aga.Controls.Tree.TreeNodeAdvMouseEventArgs>(this._tree_NodeMouseDoubleClick);
 			this._tree.SelectionChanged += new System.EventHandler(this._tree_SelectionChanged);
-			this._tree.DragOver += new System.Windows.Forms.DragEventHandler(this._tree_DragOver);
 			this._tree.DragDrop += new System.Windows.Forms.DragEventHandler(this._tree_DragDrop);
-			this._tree.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this._tree_ItemDrag);
+			this._tree.DragOver += new System.Windows.Forms.DragEventHandler(this._tree_DragOver);
 			// 
 			// _nodeCheckBox
 			// 
@@ -312,6 +312,7 @@ namespace SampleApp
 			// 
 			this._nodeStateIcon.LeftMargin = 1;
 			this._nodeStateIcon.ParentColumn = null;
+			this._nodeStateIcon.ScaleMode = Aga.Controls.Tree.ImageScaleMode.Clip;
 			// 
 			// _nodeTextBox
 			// 
