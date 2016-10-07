@@ -34,7 +34,6 @@ namespace Aga.Controls.Tree
 
 		private IRowLayout _rowLayout;
 
-		private bool _dragMode;
 		private bool DragMode
 		{
 			get { return _dragMode; }
@@ -52,7 +51,8 @@ namespace Aga.Controls.Tree
 					StartDragTimer();
 			}
 		}
-
+		private bool _dragMode;
+		
 		[DefaultValue(20), Category("Appearance")]
 		public int ColumnHeaderHeight
 		{
@@ -88,7 +88,6 @@ namespace Aga.Controls.Tree
 			}
 		}
 
-		private bool _suspendSelectionEvent;
 		internal bool SuspendSelectionEvent
 		{
 			get { return _suspendSelectionEvent; }
@@ -102,21 +101,21 @@ namespace Aga.Controls.Tree
 				}
 			}
 		}
-
-		private List<TreeNodeAdv> _rowMap;
+		private bool _suspendSelectionEvent;
+		
 		internal List<TreeNodeAdv> RowMap
 		{
 			get { return _rowMap; }
 		}
-
-		private TreeNodeAdv _selectionStart;
+		private List<TreeNodeAdv> _rowMap;
+		
 		internal TreeNodeAdv SelectionStart
 		{
 			get { return _selectionStart; }
 			set { _selectionStart = value; }
 		}
-
-		private InputState _input;
+		private TreeNodeAdv _selectionStart;
+		
 		internal InputState Input
 		{
 			get { return _input; }
@@ -125,22 +124,22 @@ namespace Aga.Controls.Tree
 				_input = value;
 			}
 		}
-
-		private bool _itemDragMode;
+		private InputState _input;
+		
 		internal bool ItemDragMode
 		{
 			get { return _itemDragMode; }
 			set { _itemDragMode = value; }
 		}
-
-		private Point _itemDragStart;
+		private bool _itemDragMode;
+		
 		internal Point ItemDragStart
 		{
 			get { return _itemDragStart; }
 			set { _itemDragStart = value; }
 		}
-
-
+		private Point _itemDragStart;
+		
 		/// <summary>
 		/// Number of rows fits to the current page
 		/// </summary>
@@ -151,7 +150,7 @@ namespace Aga.Controls.Tree
 				return _rowLayout.CurrentPageSize;
 			}
 		}
-
+		
 		/// <summary>
 		/// Number of all visible nodes (which parent is expanded)
 		/// </summary>
@@ -162,7 +161,7 @@ namespace Aga.Controls.Tree
 				return RowMap.Count;
 			}
 		}
-
+		
 		/// <summary>
 		/// Number of all visible, non-hidden nodes (which parent is expanded)
 		/// </summary>
@@ -181,8 +180,7 @@ namespace Aga.Controls.Tree
 				return visibleCount;
 			}
 		}
-
-		private int _contentWidth = 0;
+		
 		private int ContentWidth
 		{
 			get
@@ -190,8 +188,8 @@ namespace Aga.Controls.Tree
 				return _contentWidth;
 			}
 		}
-
-		private int _firstVisibleRow;
+		private int _contentWidth = 0;
+		
 		internal int FirstVisibleRow
 		{
 			get { return _firstVisibleRow; }
@@ -202,8 +200,8 @@ namespace Aga.Controls.Tree
 				UpdateView();
 			}
 		}
-
-		private int _offsetX;
+		private int _firstVisibleRow;
+		
 		public int OffsetX
 		{
 			get { return _offsetX; }
@@ -214,7 +212,8 @@ namespace Aga.Controls.Tree
 				UpdateView();
 			}
 		}
-
+		private int _offsetX;
+		
 		public override Rectangle DisplayRectangle
 		{
 			get
@@ -227,52 +226,51 @@ namespace Aga.Controls.Tree
 				return new Rectangle(r.X, r.Y, r.Width - w, r.Height - h);
 			}
 		}
-
-		private List<TreeNodeAdv> _selection;
+		
 		internal List<TreeNodeAdv> Selection
 		{
 			get { return _selection; }
 		}
-
+		private List<TreeNodeAdv> _selection;
+		
 		#endregion
 
 		#region Public Properties
 
 		#region DesignTime
-
-		private Color _fullRowSelectActiveColor = SystemColors.Highlight;
+		
 		[DefaultValue(typeof(Color), "Highlight"), Category("Appearance")]
 		public Color FullRowSelectActiveColor
 		{
 			get { return _fullRowSelectActiveColor; }
 			set { _fullRowSelectActiveColor = value; }
 		}
-
-		private Color _fullRowSelectInactiveColor = SystemColors.Control;
+		private Color _fullRowSelectActiveColor = SystemColors.Highlight;
+		
 		[DefaultValue(typeof(Color), "Control"), Category("Appearance")]
 		public Color FullRowSelectInactiveColor
 		{
 			get { return _fullRowSelectInactiveColor; }
 			set { _fullRowSelectInactiveColor = value; }
 		}
-
-		private bool _shiftFirstNode;
+		private Color _fullRowSelectInactiveColor = SystemColors.Control;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool ShiftFirstNode
 		{
 			get { return _shiftFirstNode; }
 			set { _shiftFirstNode = value; }
 		}
-
-		private bool _displayDraggingNodes;
+		private bool _shiftFirstNode;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool DisplayDraggingNodes
 		{
 			get { return _displayDraggingNodes; }
 			set { _displayDraggingNodes = value; }
 		}
-
-		private bool _fullRowSelect;
+		private bool _displayDraggingNodes;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool FullRowSelect
 		{
@@ -283,8 +281,8 @@ namespace Aga.Controls.Tree
 				UpdateView();
 			}
 		}
-
-		private bool _useColumns;
+		private bool _fullRowSelect;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool UseColumns
 		{
@@ -295,16 +293,16 @@ namespace Aga.Controls.Tree
 				FullUpdate();
 			}
 		}
-
-		private bool _allowColumnReorder;
+		private bool _useColumns;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool AllowColumnReorder
 		{
 			get { return _allowColumnReorder; }
 			set { _allowColumnReorder = value; }
 		}
-
-		private bool _showLines = true;
+		private bool _allowColumnReorder;
+		
 		[DefaultValue(true), Category("Behavior")]
 		public bool ShowLines
 		{
@@ -315,8 +313,8 @@ namespace Aga.Controls.Tree
 				UpdateView();
 			}
 		}
-
-		private bool _showPlusMinus = true;
+		private bool _showLines = true;
+		
 		[DefaultValue(true), Category("Behavior")]
 		public bool ShowPlusMinus
 		{
@@ -327,23 +325,23 @@ namespace Aga.Controls.Tree
 				FullUpdate();
 			}
 		}
-
-		private bool _showNodeToolTips = false;
+		private bool _showPlusMinus = true;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool ShowNodeToolTips
 		{
 			get { return _showNodeToolTips; }
 			set { _showNodeToolTips = value; }
 		}
-
+		private bool _showNodeToolTips = false;
+		
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "value"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic"), DefaultValue(true), Category("Behavior"), Obsolete("No longer used")]
 		public bool KeepNodesExpanded
 		{
 			get { return true; }
 			set {}
 		}
-
-		private ITreeModel _model;
+		
         /// <Summary>
         /// The model associated with this <see cref="TreeViewAdv"/>.
         /// </Summary>
@@ -368,7 +366,8 @@ namespace Aga.Controls.Tree
 				}
 			}
 		}
-
+		private ITreeModel _model;
+		
         // Tahoma is the default font
         private static Font _font = new Font("Tahoma", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)), false);
         /// <summary>
@@ -403,8 +402,7 @@ namespace Aga.Controls.Tree
             return (!Font.Equals(_font));
         }
         // End font property
-
-		private BorderStyle _borderStyle = BorderStyle.Fixed3D;
+		
 		[DefaultValue(BorderStyle.Fixed3D), Category("Appearance")]
 		public BorderStyle BorderStyle
 		{
@@ -421,7 +419,8 @@ namespace Aga.Controls.Tree
 				}
 			}
 		}
-
+		private BorderStyle _borderStyle = BorderStyle.Fixed3D;
+		
 		[DefaultValue(typeof(Color), "Window"), Category("Appearance")]
 		public override Color BackColor
 		{
@@ -429,7 +428,6 @@ namespace Aga.Controls.Tree
 			set { base.BackColor = value; }
 		}
 		
-		private bool _autoRowHeight = false;
 		/// <summary>
 		/// Set to true to expand each row's height to fit the text of it's largest column.
 		/// </summary>
@@ -450,8 +448,8 @@ namespace Aga.Controls.Tree
 				FullUpdate();
 			}
 		}
-
-		private bool _autoHeaderHeight = false;
+		private bool _autoRowHeight = false;
+		
 		/// <summary>
 		/// Set to true to expand header height to fit the text of it's largest column.
 		/// </summary>
@@ -472,8 +470,8 @@ namespace Aga.Controls.Tree
 				FullUpdate();
 			}
 		}
-
-        private GridLineStyle _gridLineStyle = GridLineStyle.None;
+		private bool _autoHeaderHeight = false;
+		
         [DefaultValue(GridLineStyle.None), Category("Appearance")]
         public GridLineStyle GridLineStyle
         {
@@ -491,8 +489,8 @@ namespace Aga.Controls.Tree
 				}
             }
         }
-
-		private int _rowHeight = 16;
+        private GridLineStyle _gridLineStyle = GridLineStyle.None;
+        
 		[DefaultValue(16), Category("Appearance")]
 		public int RowHeight
 		{
@@ -510,16 +508,16 @@ namespace Aga.Controls.Tree
 				FullUpdate();
 			}
 		}
-
-		private TreeSelectionMode _selectionMode = TreeSelectionMode.Single;
+		private int _rowHeight = 16;
+		
 		[DefaultValue(TreeSelectionMode.Single), Category("Behavior")]
 		public TreeSelectionMode SelectionMode
 		{
 			get { return _selectionMode; }
 			set { _selectionMode = value; }
 		}
-
-		private bool _hideSelection;
+		private TreeSelectionMode _selectionMode = TreeSelectionMode.Single;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool HideSelection
 		{
@@ -530,8 +528,8 @@ namespace Aga.Controls.Tree
 				UpdateView();
 			}
 		}
-
-		bool _inactiveSelection = true;
+		private bool _hideSelection;
+		
 		[DefaultValue(true), Category("Behavior")]
 		public bool InactiveSelection
 		{
@@ -542,8 +540,8 @@ namespace Aga.Controls.Tree
 				UpdateView();
 			}
 		}
-
-		private float _topEdgeSensivity = 0.3f;
+		bool _inactiveSelection = true;
+		
 		[DefaultValue(0.3f), Category("Behavior")]
 		public float TopEdgeSensivity
 		{
@@ -555,8 +553,8 @@ namespace Aga.Controls.Tree
 				_topEdgeSensivity = value;
 			}
 		}
-
-		private float _bottomEdgeSensivity = 0.3f;
+		private float _topEdgeSensivity = 0.3f;
+		
 		[DefaultValue(0.3f), Category("Behavior")]
 		public float BottomEdgeSensivity
 		{
@@ -568,24 +566,24 @@ namespace Aga.Controls.Tree
 				_bottomEdgeSensivity = value;
 			}
 		}
-
-		private bool _loadOnDemand;
+		private float _bottomEdgeSensivity = 0.3f;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool LoadOnDemand
 		{
 			get { return _loadOnDemand; }
 			set { _loadOnDemand = value; }
 		}
-
-		private bool _unloadCollapsedOnReload = false;
+		private bool _loadOnDemand;
+		
 		[DefaultValue(false), Category("Behavior")]
 		public bool UnloadCollapsedOnReload
 		{
 			get { return _unloadCollapsedOnReload; }
 			set { _unloadCollapsedOnReload = value; }
 		}
-
-		private int _indent = 19;
+		private bool _unloadCollapsedOnReload = false;
+		
 		[DefaultValue(19), Category("Behavior")]
 		public int Indent
 		{
@@ -596,8 +594,8 @@ namespace Aga.Controls.Tree
 				UpdateView();
 			}
 		}
-
-		private Color _lineColor = SystemColors.ControlDark;
+		private int _indent = 19;
+		
 		[DefaultValue(typeof(Color), "ControlDark"), Category("Behavior")]
 		public Color LineColor
 		{
@@ -609,8 +607,8 @@ namespace Aga.Controls.Tree
 				UpdateView();
 			}
 		}
-
-		private Color _dragDropMarkColor = Color.Black;
+		private Color _lineColor = SystemColors.ControlDark;
+		
 		[DefaultValue(typeof(Color), "Black"), Category("Behavior")]
 		public Color DragDropMarkColor
 		{
@@ -621,8 +619,8 @@ namespace Aga.Controls.Tree
 				CreateMarkPen();
 			}
 		}
-
-		private float _dragDropMarkWidth = 3.0f;
+		private Color _dragDropMarkColor = Color.Black;
+		
 		[DefaultValue(3.0f), Category("Behavior")]
 		public float DragDropMarkWidth
 		{
@@ -633,23 +631,23 @@ namespace Aga.Controls.Tree
 				CreateMarkPen();
 			}
 		}
-
-		private bool _highlightDropPosition = true;
+		private float _dragDropMarkWidth = 3.0f;
+		
 		[DefaultValue(true), Category("Behavior")]
 		public bool HighlightDropPosition
 		{
 			get { return _highlightDropPosition; }
 			set { _highlightDropPosition = value; }
 		}
-
-		private TreeColumnCollection _columns;
+		private bool _highlightDropPosition = true;
+		
 		[Category("Behavior"), DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		public Collection<TreeColumn> Columns
 		{
 			get { return _columns; }
 		}
-
-		private NodeControlsCollection _controls;
+		private TreeColumnCollection _columns;
+		
 		[Category("Behavior"), DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
 		[Editor(typeof(NodeControlCollectionEditor), typeof(UITypeEditor))]
 		public Collection<NodeControl> NodeControls
@@ -659,8 +657,8 @@ namespace Aga.Controls.Tree
 				return _controls;
 			}
 		}
-
-		private bool _asyncExpanding;
+		private NodeControlsCollection _controls;
+		
 		/// <summary>
 		/// When set to true, node contents will be read in background thread.
 		/// </summary>
@@ -670,19 +668,20 @@ namespace Aga.Controls.Tree
 			get { return _asyncExpanding; }
 			set { _asyncExpanding = value; }
 		}
-
+		private bool _asyncExpanding;
+		
 		#endregion
 
 		#region RunTime
-
-		private IToolTipProvider _defaultToolTipProvider = null;
+		
 		[Browsable(false)]
 		public IToolTipProvider DefaultToolTipProvider
 		{
 			get { return _defaultToolTipProvider; }
 			set { _defaultToolTipProvider = value; }
 		}
-
+		private IToolTipProvider _defaultToolTipProvider = null;
+		
 		[Browsable(false)]
 		public IEnumerable<TreeNodeAdv> AllNodes
 		{
@@ -704,7 +703,7 @@ namespace Aga.Controls.Tree
 				}
 			}
 		}
-
+		
 		[Browsable(false)]
 		public Predicate<TreeNodeAdv> NodeFilter
 		{
@@ -715,23 +714,22 @@ namespace Aga.Controls.Tree
 				this.UpdateNodeFilter();
 			}
 		}
-
-		private DropPosition _dropPosition;
+		
 		[Browsable(false)]
 		public DropPosition DropPosition
 		{
 			get { return _dropPosition; }
 			set { _dropPosition = value; }
 		}
-
-		private TreeNodeAdv _root;
+		private DropPosition _dropPosition;
+		
 		[Browsable(false)]
 		public TreeNodeAdv Root
 		{
 			get { return _root; }
 		}
-
-		private ReadOnlyCollection<TreeNodeAdv> _readonlySelection;
+		private TreeNodeAdv _root;
+		
 		[Browsable(false)]
 		public ReadOnlyCollection<TreeNodeAdv> SelectedNodes
 		{
@@ -740,7 +738,8 @@ namespace Aga.Controls.Tree
 				return _readonlySelection;
 			}
 		}
-
+		private ReadOnlyCollection<TreeNodeAdv> _readonlySelection;
+		
 		[Browsable(false)]
 		public TreeNodeAdv SelectedNode
 		{
@@ -785,21 +784,21 @@ namespace Aga.Controls.Tree
 				}
 			}
 		}
-
-		private TreeNodeAdv _currentNode;
+		
 		[Browsable(false)]
 		public TreeNodeAdv CurrentNode
 		{
 			get { return _currentNode; }
 			internal set { _currentNode = value; }
 		}
-
+		private TreeNodeAdv _currentNode;
+		
         [Browsable(false)]
         public int ItemCount
         {
             get { return RowMap.Count; }
         }
-
+		
 		/// <summary>
 		/// Indicates the distance the content is scrolled to the left
 		/// </summary>
