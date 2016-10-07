@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -53,7 +53,7 @@ namespace Aga.Controls.Tree
 		}
 		private bool _dragMode;
 		
-		[DefaultValue(20), Category("Appearance")]
+		[DefaultValue(20), Category("Appearance"), Description("Высота заголовка.")]
 		public int ColumnHeaderHeight
 		{
 			get
@@ -239,7 +239,7 @@ namespace Aga.Controls.Tree
 
 		#region DesignTime
 		
-		[DefaultValue(typeof(Color), "Highlight"), Category("Appearance")]
+		[DefaultValue(typeof(Color), "Highlight"), Category("Appearance"), Description("Цвет активного выделения в режиме полной строки.")]
 		public Color FullRowSelectActiveColor
 		{
 			get { return _fullRowSelectActiveColor; }
@@ -247,7 +247,7 @@ namespace Aga.Controls.Tree
 		}
 		private Color _fullRowSelectActiveColor = SystemColors.Highlight;
 		
-		[DefaultValue(typeof(Color), "Control"), Category("Appearance")]
+		[DefaultValue(typeof(Color), "Control"), Category("Appearance"), Description("Цвет неактивного выделения в режиме полной строки.")]
 		public Color FullRowSelectInactiveColor
 		{
 			get { return _fullRowSelectInactiveColor; }
@@ -271,7 +271,11 @@ namespace Aga.Controls.Tree
 		}
 		private bool _displayDraggingNodes;
 		
-		[DefaultValue(false), Category("Behavior")]
+		/// <summary>
+		/// Задает или возвращает значение, указывающее, распространяется ли выделение выбора на всю ширину элемента управления.
+		/// Значение по умолчанию - false.
+		/// </summary>
+		[DefaultValue(false), Category("Behavior"), Description("Указывает, распространяется ли выделение на всю ширину TreeViewAdv.")]
 		public bool FullRowSelect
 		{
 			get { return _fullRowSelect; }
@@ -295,7 +299,7 @@ namespace Aga.Controls.Tree
 		}
 		private bool _useColumns;
 		
-		[DefaultValue(false), Category("Behavior")]
+		[DefaultValue(false), Category("Behavior"), Description("Указывает, может ли пользователь изменить порядок столбцов.")]
 		public bool AllowColumnReorder
 		{
 			get { return _allowColumnReorder; }
@@ -303,7 +307,7 @@ namespace Aga.Controls.Tree
 		}
 		private bool _allowColumnReorder;
 		
-		[DefaultValue(true), Category("Behavior")]
+		[DefaultValue(true), Category("Behavior"), Description("Указывает, отображаются ли соединительные линии между узлами.")]
 		public bool ShowLines
 		{
 			get { return _showLines; }
@@ -315,7 +319,7 @@ namespace Aga.Controls.Tree
 		}
 		private bool _showLines = true;
 		
-		[DefaultValue(true), Category("Behavior")]
+		[DefaultValue(true), Category("Behavior"), Description("Указывает, отображаются ли рядом с родительскими узлами кнопки \"плюс\"/\"минус\".")]
 		public bool ShowPlusMinus
 		{
 			get { return _showPlusMinus; }
@@ -327,7 +331,7 @@ namespace Aga.Controls.Tree
 		}
 		private bool _showPlusMinus = true;
 		
-		[DefaultValue(false), Category("Behavior")]
+		[DefaultValue(false), Category("Behavior"), Description("Указывает, отображаются ли на узлах всплывающие подсказки.")]
 		public bool ShowNodeToolTips
 		{
 			get { return _showNodeToolTips; }
@@ -403,7 +407,7 @@ namespace Aga.Controls.Tree
         }
         // End font property
 		
-		[DefaultValue(BorderStyle.Fixed3D), Category("Appearance")]
+		[DefaultValue(BorderStyle.Fixed3D), Category("Appearance"), Description("Стиль границы элемента управления.")]
 		public BorderStyle BorderStyle
 		{
 			get
@@ -518,7 +522,7 @@ namespace Aga.Controls.Tree
 		}
 		private TreeSelectionMode _selectionMode = TreeSelectionMode.Single;
 		
-		[DefaultValue(false), Category("Behavior")]
+		[DefaultValue(false), Category("Behavior"), Description("Удаляет выделение выбранного узла, когда на данный элемент управления не переключен фокус.")]
 		public bool HideSelection
 		{
 			get { return _hideSelection; }
@@ -584,7 +588,7 @@ namespace Aga.Controls.Tree
 		}
 		private bool _unloadCollapsedOnReload = false;
 		
-		[DefaultValue(19), Category("Behavior")]
+		[DefaultValue(19), Category("Behavior"), Description("Величина отступа для дочерних узлов (в точках).")]
 		public int Indent
 		{
 			get { return _indent; }
@@ -596,7 +600,7 @@ namespace Aga.Controls.Tree
 		}
 		private int _indent = 19;
 		
-		[DefaultValue(typeof(Color), "ControlDark"), Category("Behavior")]
+		[DefaultValue(typeof(Color), "ControlDark"), Category("Behavior"), Description("Цвет линий, соединяющих узлы в TreeViewAdv.")]
 		public Color LineColor
 		{
 			get { return _lineColor; }
@@ -659,10 +663,8 @@ namespace Aga.Controls.Tree
 		}
 		private NodeControlsCollection _controls;
 		
-		/// <summary>
-		/// When set to true, node contents will be read in background thread.
-		/// </summary>
-		[Category("Behavior"), DefaultValue(false), Description("Read children in a background thread when expanding.")]
+		/// <summary> Когда установлено true, содержимое узлов загружается в фоновом потоке. </summary>
+		[Category("Behavior"), DefaultValue(false), Description("Загрузка дочерних узлов в фоновом потоке при разворачивании.")]
 		public bool AsyncExpanding
 		{
 			get { return _asyncExpanding; }
